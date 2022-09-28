@@ -1,4 +1,4 @@
-package honest.niceman.university.lab2.p3_t3;
+package honest.niceman.university.lab2.part3.task3;
 
 /*
 As you know, too high a stack of plates can fall apart.

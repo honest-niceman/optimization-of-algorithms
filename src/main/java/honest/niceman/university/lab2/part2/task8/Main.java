@@ -1,4 +1,4 @@
-package honest.niceman.university.lab2.p2_t8;
+package honest.niceman.university.lab2.part2.task8;
 
 /*
 For a cycled linked list, implement an algorithm that returns the initial node

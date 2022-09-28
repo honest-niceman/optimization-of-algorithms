@@ -1,4 +1,4 @@
-package honest.niceman.university.lab2.p3_t3;
+package honest.niceman.university.lab2.part3.task3;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;

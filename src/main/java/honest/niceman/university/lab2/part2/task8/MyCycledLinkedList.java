@@ -1,4 +1,4 @@
-package honest.niceman.university.lab2.p2_t8;
+package honest.niceman.university.lab2.part2.task8;
 
 import java.util.HashSet;
 import java.util.Set;
