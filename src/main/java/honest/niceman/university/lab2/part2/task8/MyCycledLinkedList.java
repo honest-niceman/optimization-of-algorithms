@@ -3,6 +3,14 @@ package honest.niceman.university.lab2.part2.task8;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+8. Для кольцевого связного списка реализуйте алгоритм, возвращающий начальный узел
+петли. Кольцевой связный список – это связный список, в котором указатель следующего узла
+ссылается на более ранний узел, образуя петлю.
+Пример:
+Ввод: A->B->C- >D->E->C (предыдущий узел C)
+Вывод: C
+*/
 public class MyCycledLinkedList {
     Node head;
 
