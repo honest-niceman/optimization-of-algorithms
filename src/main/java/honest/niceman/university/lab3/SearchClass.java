@@ -3,28 +3,28 @@ package honest.niceman.university.lab3;
 public class SearchClass {
     private SearchClass() {}
 
-    private static boolean areIdentical(BinaryTree.Node node1, BinaryTree.Node node2) {
-        if (node1 == null && node2 == null) {
+    private static boolean areIdentical(BinaryTree.Node treeOneNode, BinaryTree.Node treeTwoNode) {
+        if (treeOneNode == null && treeTwoNode == null) {
             return true;
         }
-        if (node1 == null || node2 == null) {
+        if (treeOneNode == null || treeTwoNode == null) {
             return false;
         }
-        return (node1.value == node2.value
-                && areIdentical(node1.left, node2.left)
-                && areIdentical(node1.right, node2.right));
+        return (treeOneNode.value == treeTwoNode.value
+                && areIdentical(treeOneNode.left, treeTwoNode.left)
+                && areIdentical(treeOneNode.right, treeTwoNode.right));
     }
 
-    public static boolean isSubtree(BinaryTree.Node node1, BinaryTree.Node node2) {
-        if (node2 == null) {
+    public static boolean isSubtree(BinaryTree.Node treeOneNode, BinaryTree.Node treeTwoNode) {
+        if (treeTwoNode == null) {
             return true;
         }
-        if (node1 == null) {
+        if (treeOneNode == null) {
             return false;
         }
-        if (areIdentical(node1, node2)) {
+        if (areIdentical(treeOneNode, treeTwoNode)) {
             return true;
         }
-        return isSubtree(node1.left, node2) || isSubtree(node1.right, node2);
+        return isSubtree(treeOneNode.left, treeTwoNode) || isSubtree(treeOneNode.right, treeTwoNode);
     }
 }
