@@ -1,6 +1,6 @@
 package honest.niceman.university.lab3;
 
-public class Approach2 {
+public class StringSolution {
     public static boolean containsTree(BinaryTree.Node t1,
                                        BinaryTree.Node t2) {
         StringBuilder tree1 = new StringBuilder();
