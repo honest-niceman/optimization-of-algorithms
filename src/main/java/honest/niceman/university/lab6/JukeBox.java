@@ -6,10 +6,7 @@ import java.util.List;
 
 public class JukeBox {
     private final List<Playlist> playlists;
-
-    public List<Playlist> getPlaylists() {
-        return playlists;
-    }
+    private Song currentSong;
 
     public JukeBox(int size) {
         this.playlists = new ArrayList<>();
@@ -20,13 +17,13 @@ public class JukeBox {
 
     public void playSong(int playlistIdx, int songIdx) {
         Song song = playlists.get(playlistIdx).getSong(songIdx);
+        currentSong = song;
         Clip clip = song.getClip();
         clip.start();
         song.setStatus(Status.PLAY);
     }
 
-    public void pauseSong(int playlistIdx, int songIdx) {
-        Song song = playlists.get(playlistIdx).getSong(songIdx);
+    public void pauseSong(Song song) {
         if (song.getStatus() == Status.PLAY) {
             Clip clip = song.getClip();
             clip.stop();
@@ -38,8 +35,7 @@ public class JukeBox {
         }
     }
 
-    public void resumeSong(int playlistIdx, int songIdx) {
-        Song song = playlists.get(playlistIdx).getSong(songIdx);
+    public void resumeSong(Song song) {
         if (song.getStatus() == Status.PAUSED) {
             Clip clip = song.getClip();
             clip.setMicrosecondPosition(song.getCurrentFrame());
@@ -48,5 +44,13 @@ public class JukeBox {
         } else {
             throw new IllegalArgumentException("Song should be paused before resumed");
         }
+    }
+
+    public Song getCurrentSong() {
+        return currentSong;
+    }
+
+    public List<Playlist> getPlaylists() {
+        return playlists;
     }
 }

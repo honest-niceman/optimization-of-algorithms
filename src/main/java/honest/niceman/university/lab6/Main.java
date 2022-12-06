@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) {
         JukeBox jukeBox = new JukeBox(3);
         List<Playlist> playlists = jukeBox.getPlaylists();
-        for (int i = 0; i < playlists.size(); i++) {
-            System.out.println(playlists.get(i).toString());
+        for (Playlist playlist : playlists) {
+            System.out.println(playlist.toString());
         }
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -25,14 +25,16 @@ public class Main {
     }
 
     private static void gotoChoice(int c, Scanner scanner, JukeBox jukeBox) {
-        System.out.println("Enter playlist idx: ");
-        int playlistIdx = Integer.parseInt(scanner.nextLine());
-        System.out.println("Enter song idx: ");
-        int songIdx = Integer.parseInt(scanner.nextLine());
         switch (c) {
-            case 1 -> jukeBox.playSong(playlistIdx, songIdx);
-            case 2 -> jukeBox.resumeSong(playlistIdx, songIdx);
-            case 3 -> jukeBox.pauseSong(playlistIdx, songIdx);
+            case 1 -> {
+                System.out.println("Enter playlist idx: ");
+                int playlistIdx = Integer.parseInt(scanner.nextLine());
+                System.out.println("Enter song idx: ");
+                int songIdx = Integer.parseInt(scanner.nextLine());
+                jukeBox.playSong(playlistIdx, songIdx);
+            }
+            case 2 -> jukeBox.resumeSong(jukeBox.getCurrentSong());
+            case 3 -> jukeBox.pauseSong(jukeBox.getCurrentSong());
         }
     }
 }

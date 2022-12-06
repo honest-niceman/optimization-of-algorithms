@@ -6,9 +6,9 @@ import java.io.IOException;
 
 public class Song {
     private final Clip clip;
+    private final String filePath;
     private Status status;
     private Long currentFrame;
-    private String filePath;
 
     public Song(String filePath) {
         this.filePath = filePath;
@@ -17,11 +17,8 @@ public class Song {
             this.clip = AudioSystem.getClip();
             this.clip.open(audioInputStream);
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
-        } catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (LineUnavailableException e) {
+            this.clip.stop();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             throw new RuntimeException(e);
         }
     }
