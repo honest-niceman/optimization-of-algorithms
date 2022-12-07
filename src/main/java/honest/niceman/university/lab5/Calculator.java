@@ -10,7 +10,7 @@ public class Calculator {
             return multiply(b, a);
         }
         int sum = 0;
-        for (int i = abs(b); i > 0; i--) {
+        for (int i = 0; i < abs(b); i++) {
             sum += a;
         }
         if (b < 0) {
@@ -24,15 +24,15 @@ public class Calculator {
         int aModule = abs(a);
         int bModule = abs(b);
         int product = 0;
-        int x = 0;
+        int result = 0;
         while (product + bModule <= aModule) {
             product += bModule;
-            x++;
+            result++;
         }
         if ((a < 0 && b < 0) || (a > 0 && b > 0)) {
-            return x;
+            return result;
         } else {
-            return flipSign(x);
+            return flipSign(result);
         }
     }
 

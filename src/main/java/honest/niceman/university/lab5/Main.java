@@ -16,12 +16,18 @@ public class Main {
 
         System.out.println("-------");
 
-        System.out.println(Calculator.divide(0, 0));
+//        System.out.println(Calculator.divide(0, 0));
 
         System.out.println("-------");
 
         System.out.println(Calculator.multiply(2, 7));
         System.out.println(Calculator.divide(10, 2));
         System.out.println(Calculator.subtract(342, 2));
+
+        System.out.println("-------");
+
+        System.out.println(Calculator.multiply(0, -7));
+        System.out.println(Calculator.divide(10, -2));
+        System.out.println(Calculator.subtract(342, -2));
     }
 }
